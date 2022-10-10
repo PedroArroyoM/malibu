@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<odoo>
+    <data>
+        <template id="dte_subtemplate" inherit_id="l10n_cl_edi.dte_subtemplate">
+            <xpath expr="//MntBruto" position="replace">
+                <MntBruto t-if="move.invoice_line_ids.tax_ids.filtered(lambda x: x.price_include) and not move.l10n_latam_document_type_id.code == '39'" t-esc="'1'"/>
+            </xpath>
+            <xpath expr="//IndMntNeto" position="replace">
+                <IndMntNeto t-if="move.invoice_line_ids and move.l10n_latam_document_type_id._is_doc_type_voucher() and move.l10n_latam_document_type_id._is_doc_type_electronic_ticket() and not move.invoice_line_ids.tax_ids.filtered(lambda x: x.price_include)" t-esc="'2'"/>
+            </xpath>
+            <xpath expr="//Detalle/IndExe[@t-if='line.price_total == 0 or line.price_subtotal == 0']" position="replace">
+              <IndExe t-if="(line.price_total == 0 or line.price_subtotal == 0) and not move.l10n_latam_document_type_id._is_doc_type_voucher() and not move.l10n_latam_document_type_id._is_doc_type_electronic_ticket()" t-esc="'4'"/>
+              <IndExe t-if="(line.price_total == 0 or line.price_subtotal == 0) and move.l10n_latam_document_type_id._is_doc_type_voucher() and move.l10n_latam_document_type_id._is_doc_type_electronic_ticket()" t-esc="'1'"/>
+            </xpath>
+            <xpath expr="//NmbItem" position="replace">
+                <NmbItem t-esc="format_length(line.dte_product_string, 80)"/>
+            </xpath>
+            <xpath expr="//DscItem" position="replace">
+                <DscItem t-esc="format_length(line.dte_product_string, 1000)"/>
+            </xpath>
+            <xpath expr="//Detalle/t[@t-else='']" position="replace">
+                <t t-if="move.l10n_latam_document_type_id._is_doc_type_voucher() and not move.invoice_line_ids.tax_ids.filtered(lambda x: x.price_include)">
+                   <MontoItem t-esc="float_repr(line.price_subtotal, 0)"/>
+                </t>
+                <t t-if="move.l10n_latam_document_type_id._is_doc_type_voucher() and move.l10n_latam_document_type_id._is_doc_type_electronic_ticket() and move.invoice_line_ids.tax_ids.filtered(lambda x: x.price_include)">
+                    <MontoItem t-esc="float_repr(line.price_total, 0)"/>
+                </t>
+                <t t-if="move.l10n_latam_document_type_id._is_doc_type_acceptance() and not move.l10n_latam_document_type_id._is_doc_type_electronic_ticket() and move.invoice_line_ids.tax_ids.filtered(lambda x: x.price_include)">
+                    <MontoItem t-esc="float_repr(line.price_total, 0)"/>
+                </t>
+                <t t-if="not move.l10n_latam_document_type_id._is_doc_type_voucher() and not move.invoice_line_ids.tax_ids.filtered(lambda x: x.price_include)">
+                   <MontoItem t-esc="float_repr(line.price_subtotal, 0)"/>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

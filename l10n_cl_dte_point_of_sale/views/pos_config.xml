@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <record id="view_pos_config_form" model="ir.ui.view">
+          <field name="model">pos.config</field>
+          <field name="name">pos.config.sii.form</field>
+          <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+          <field name="arch" type="xml">
+            <div id="iface_invoicing" position="after">
+              <div class="col-xs-12 col-md-6 o_setting_box" id="iface_boleta">
+                  <div class="o_setting_right_pane">
+                      <h3>Secuencias de Boleta</h3>
+                      <div class="text-muted" id="journal_document_class_id_label">
+                         Imprimir Boletas
+                      </div>
+                      <div class="content-group mt16">
+                          <div class="row mt16">
+                              <label string="Modo Restauración" for="restore_mode" class="col-md-3 o_light_label"/>
+                              <field name="restore_mode"/>
+                          </div>
+                          <div class="row mt16">
+                              <label string="Secuencias de Boleta" for="secuencia_boleta" class="col-md-3 o_light_label"/>
+                              <field name="secuencia_boleta"
+                                     domain="[('l10n_latam_document_type_id.code', 'in', [39])]" />
+                          </div>
+                          <div class="row mt16">
+                            <label string="Secuencias de Boleta Exenta" for="secuencia_boleta_exenta" class="col-md-3 o_light_label"/>
+                            <field name="secuencia_boleta_exenta"
+                                      domain="[('l10n_latam_document_type_id.code', 'in', [41])]" />
+                          </div>
+                          <div class="row mt16">
+                              <label string="Ticket?" for="ticket" class="col-md-3 o_light_label"/>
+                              <field name="ticket" />
+                              <label string="Marcar por defecto" for="marcar" class="col-md-3 o_light_label"/>
+                              <field name="marcar" widget="radio" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </field>
+      </record>
+
+      <!-- Inherit Form view -->
+      <record id="kanban" model="ir.ui.view">
+        <field name="name">kanban.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban"/>
+        <field name="arch" type="xml">
+          <field name="pos_session_state" position="after">
+            <field name="next_number" />
+            <field name="left_number" />
+            <field name="next_number_exenta" />
+            <field name="left_number_exenta" />
+          </field>
+          <xpath expr="//div[hasclass('o_kanban_primary_right')]/div[1]" position="before">
+            <div t-if="record.next_number.value" class="row">
+                <div class="col-6" title="Boletas Afectas">
+                    <span>Afectas</span>
+                </div>
+                <div class="col-6" title="Próximo folio para boletas afectas (boletas afectas restantes)">
+                    <span><field name="next_number"/> (<field name="left_number"/>)</span>
+                </div>
+            </div>
+            <div t-if="record.next_number_exenta.value" class="row">
+                <div class="col-6" title="Boletas Exentas">
+                    <span>Exentas</span>
+                </div>
+                <div class="col-6" title="Próximo folio para boletas exentas (boletas exentas restantes)">
+                    <span><field name="next_number_exenta"/> (<field name="left_number_exenta"/>)</span>
+                </div>
+            </div>
+          </xpath>
+        </field>
+      </record>
+</odoo>
