@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<odoo>
+    <data>
+        <template id="dd_subtemplate" inherit_id="l10n_cl_edi.dd_template">
+            <xpath expr="//IT1" position="replace">
+                <IT1 t-esc="format_length(line.dte_product_string, 40)"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

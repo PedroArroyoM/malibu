@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+      <t t-if="!receipt.company.logo" position="replace">
+        <h3 class="pos-receipt-center-align">
+            <t t-esc="receipt.company.name" />
+            <br/>
+            <t t-esc="receipt.company.document_number"/>
+            <t t-if="receipt.nombre_documento"><br /><t t-esc="receipt.nombre_documento"/><t t-esc="' N°:' + receipt.sii_document_number"/></t>
+        </h3>
+      </t>
+      <t t-if="receipt.company.contact_address" position="replace">
+        <h3>
+          <t t-esc="receipt.company.activity_description"/><br />
+          Casa Matriz: <t t-esc="receipt.company.street"/> <t t-esc="receipt.company.city"/><br />
+          <t t-if="receipt.company.sucursal_ids">
+            <t t-foreach="receipt.company.sucursal_ids" t-as="sucursal">
+                Sucursal: <t t-esc="sucursal.partner_id.street + ', ' + sucursal.partner_id.city_id.name+ ', ' + sucursal.partner_id.city"/><br />
+            </t>
+          </t>
+        </h3>
+
+      </t>
+      <t t-if="receipt.company.vat" position="replace">
+        <div />
+      </t>
+      <xpath expr="//div[hasclass('pos-receipt-contact')]" position="inside">
+        <div class="col-xs-12 text-left" t-if="receipt.partner_id">
+            Cliente: <span t-esc="receipt.client.name"/><br/>
+            Rut: <span t-esc="receipt.client.document_number"/><br/>
+            Dirección: <span t-esc="receipt.client.street"/><br/>
+            Número de identificación: <span t-esc="receipt.client.id"/><br/>
+        </div>
+      </xpath>
+      <t t-if="!isTaxIncluded" position="replace">
+        <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+            <div t-if="tax.amount > 0">
+                <t t-esc="tax.name" />
+                <span t-esc='env.pos.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+            </div>
+        </t>
+        <!-- Exento -->
+        <div class="pos-receipt-amount" t-if="receipt.exento !=0">
+            Exento:
+            <span t-esc="env.pos.format_currency_no_symbol(receipt.exento)" class="pos-receipt-right-align"/>
+        </div>
+      </t>
+      <t t-if="isTaxIncluded" position="replace">
+        <div class="row" t-if="receipt.barcode">
+          <div class="col-xs-12">
+            <img t-att-src="receipt.barcode" style="width:100%;height: 150px;"/>
+          </div>
+          <div class="col-xs-12">
+              <p style="text-align:center;color:red; font-size:8px;">
+                Timbre Electrónico SII
+                <br/>
+                Resolución <t t-esc='receipt.company.dte_resolution_number'/> de <t t-esc='receipt.company.l10n_cl_dte_resolution_date.slice(0, 4)'/> Verifique documento en:
+                <br />
+                www.sii.cl o en <br />
+                <t t-esc="receipt.company.website + '/boleta/' + receipt.sii_document_number"/>
+              </p>
+          </div>
+        </div>
+      </t>
+    </t>
+
+</templates>

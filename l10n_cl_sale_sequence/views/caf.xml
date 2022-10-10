@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="inherit_caf_sequence">
+            <field name="name">inherit_caf_sequence</field>
+            <field name="model">l10n_cl.dte.caf</field>
+            <field name="inherit_id" ref="l10n_cl_edi.view_dte_caf_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="usage" widget="selection"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="action_out_use" string="Fuera de Uso"
+                            groups="account.group_account_manager" type="object" class="btn-primary"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="inherit_caf_sequence_tree">
+            <field name="name">inherit_caf_sequence_tree</field>
+            <field name="model">l10n_cl.dte.caf</field>
+            <field name="inherit_id" ref="l10n_cl_edi.view_dte_caf_tree"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="usage" widget="selection"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="sequence_view" model="ir.ui.view">
+        <field name="name">ir.sequence.form</field>
+        <field name="model">ir.sequence</field>
+        <field name="inherit_id" ref="l10n_cl_dte_point_of_sale.sequence_view"/>
+        <field name="arch" type="xml">
+            <field name="caf_file" position="replace">
+                <field name="caf_file"
+                       domain="[
+                            ('l10n_latam_document_type_id', '=', l10n_latam_document_type_id),
+                            ('usage', '=', 'other'),
+                            ('status', '=', 'in_use')
+                        ]"
+                       options="{'no_open': True, 'no_create': True, 'no_quick_create': True, 'no_edit': True}"/>
+            </field>
+        </field>
+    </record>
+    </data>
+</odoo>
