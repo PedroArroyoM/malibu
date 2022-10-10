@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="theme_laze_static_snippet" name="Laze Static Snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="theme_laze.website_snippet_builder" t-thumbnail="/theme_laze/static/src/img/snippets_thumbs/html_builder-icon.png"/>
+        </xpath>
+    </template>
+    <template id="theme_laze_dynamic_snippet" name="Laze Dynamic Snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="theme_laze.as_product_slider" t-thumbnail="/theme_laze/static/src/img/snippets_thumbs/product_dynamic_snippet.png"/>
+            <t t-snippet="theme_laze.as_product_variant_slider" t-thumbnail="/theme_laze/static/src/img/snippets_thumbs/product_dynamic_snippet.png"/>
+            <t t-snippet="theme_laze.as_brand_slider" t-thumbnail="/theme_laze/static/src/img/snippets_thumbs/brand-slider.png"/>
+            <t t-snippet="theme_laze.as_cat_slider" t-thumbnail="/theme_laze/static/src/img/snippets_thumbs/cat-slider.png"/>
+            <t t-snippet="theme_laze.blog_slider" t-thumbnail="/theme_laze/static/src/img/snippets_thumbs/blogs.png"/>
+        </xpath>
+    </template>
+</odoo>

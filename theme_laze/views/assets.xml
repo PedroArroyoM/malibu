@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" name="Frontend Assets theme laze" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/theme_laze/static/src/lib/frontend/bootstrap-slider.min.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/js/product_share.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/js/product.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/js/shop.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/js/cart.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/js/load_on_scroll.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/js/megamenu_front.js"/>
+            <!-- lib -->
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/lib/linearicons.css"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/lib/frontend/bootstrap-slider.min.css"/>
+
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/variable.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/mixins.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/header.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/base.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/button.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/snippets.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/blog.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/effect.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/mega-menu.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/shop.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/quick-view.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/product-details.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/product-snippet.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/categories.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/brand.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/cart.scss"/>
+	        <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/custom-option.scss"/>
+        </xpath>
+    </template>
+
+    <template id="theme_laze_editor" inherit_id="website.assets_editor">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/theme_laze/static/src/snippets/s_snippet_builder/options.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/snippets/s_product_slider/options.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/snippets/s_product_var_slider/options.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/snippets/s_blog_slider/options.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/snippets/s_brand_slider/options.js"/>
+            <script type="text/javascript" src="/theme_laze/static/src/snippets/s_category_slider/options.js"/>
+        </xpath>
+    </template>
+
+    <template id="theme_laze_primary_variables" inherit_id="website._assets_primary_variables" priority="1">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/theme.scss"/>
+        </xpath>
+    </template>
+
+    <template id="theme_laze_assets_frontend_helpers" inherit_id="portal._assets_frontend_helpers">
+        <xpath expr="//link" position="before">
+            <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/scss/bootstrap-override.scss"/>
+        </xpath>
+    </template>
+
+    <!-- Custom Header Assets: Start -->
+        <template id="assets_frontend_header1" name="Laze: Header-1 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_header/header1.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_header2" name="Laze: Header-2 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_header/header2.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_header3" name="Laze: Header-3 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_header/header3.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_header4" name="Laze: Header-4 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_header/header4.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_header5" name="Laze: Header-5 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_header/header5.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_header6" name="Laze: Header-6 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_header/header6.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_header7" name="Laze: Header-7 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_header/header7.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_header8" name="Laze: Header-8 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_header/header8.scss"/>
+            </xpath>
+        </template>
+    <!-- Custom Header Assets: End -->
+
+    <!-- Custom Footer Assets: Start -->
+        <template id="assets_frontend_footer1" name="Laze: Footer-1 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_footer/footer1.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_footer2" name="Laze: Footer-2 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_footer/footer2.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_footer3" name="Laze: Footer-3 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_footer/footer3.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_footer4" name="Laze: Footer-4 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_footer/footer4.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_footer5" name="Laze: Footer-5 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_footer/footer5.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_footer6" name="Laze: Footer-6 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_footer/footer6.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_footer7" name="Laze: Footer-7 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_footer/footer7.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend_footer8" name="Laze: Footer-8 Frontend Assets" inherit_id="website.assets_frontend" active="False">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/theme_laze/static/src/snippets/s_footer/footer8.scss"/>
+            </xpath>
+        </template>
+    <!-- Custom Footer Assets: End -->
+</odoo>
