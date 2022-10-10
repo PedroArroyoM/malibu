@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="product_slider_templates" xml:space="preserve">
+    <t t-name="theme_laze.p_slider_popup_template">
+        <div class="p_slider_panel o_technical_modal modal fade dialog_box_popup product-slider-info" id="product_slider_modal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="m-0">Configure Product Slider</h4>
+                        <button class="close" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"/>
+                        </button>
+                    </div>
+                    <div class="o_product_slider_panel_content modal-body">
+                        <div class="o_product_slider_config_details">
+                            <form class="form-horizontal container-fluid" role="form">
+                                <div class="row align-items-center form-group product_collection_container">
+                                    <label class="col-sm-3 m-0 control-label" for="product_collection">Product Collections:</label>
+                                    <div class="col-sm-9">
+                                        <select
+                                            class="form-control"
+                                            name="pro_collection"
+                                            multiple="multiple"
+                                            id="multiselect">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-group align-items-center">
+                                    <label class="col-sm-3 m-0 control-label" for="slider_type">Slider Style: </label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="slider_type"/>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center form-group prod_count">
+                                    <label class="col-sm-3 m-0 control-label" for="product-count">No of Products per Row / Column:
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" id="prod-count" name="prod-count" placeholder="Enter Count" type="number"/>
+                                    </div>
+                                </div>
+                                <div class="row form-group auto_load">
+                                    <div class="col-sm-3"/>
+                                    <div class="col-sm-9">
+                                        <input id="prod-auto" name="prod-auto" type="checkbox"/>
+                                        <label class="control-label m-0px" for="slider-autoplay">Auto-Slide ?</label>
+                                    </div>
+                                </div>
+
+                                <div class="row align-items-center form-group slider_time" style="display: none;">
+                                    <label class="col-sm-3 m-0 control-label" for="slider-time">Slide Timer(ms) :
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" id="slider_time" name="slider-time" placeholder="Enter Millisecond" type="number"/>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <label class="col-sm-3 m-0 control-label" for="quick-opt">
+                                        Quick Option:
+                                    </label>
+
+                                    <div class="col-sm-9">
+                                        <div class="row align-items-center form-group add_to_cart">
+                                            <div class="col-sm-9">
+                                                <input id="add_to_cart" name="add_to_cart" type="checkbox"/>
+                                                <label class="control-label m-0px" for="add_to_cart">Add to Cart?</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center form-group quick_view">
+                                            <div class="col-sm-9">
+                                                <input id="quick_view" name="quick_view" type="checkbox"/>
+                                                <label class="control-label m-0px" for="quick_view">Quick View?</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center form-group pro_compare">
+                                            <div class="col-sm-9">
+                                                <input id="pro_compare" name="pro_compare" type="checkbox"/>
+                                                <label class="control-label m-0px" for="pro_compare">Product Compare?</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center form-group pro_wishlist">
+                                            <div class="col-sm-9">
+                                                <input id="pro_wishlist" name="pro_wishlist" type="checkbox"/>
+                                                <label class="control-label m-0px" for="pro_wishlist">Add to Wishlist?</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center form-group pro_ribbon">
+                                            <div class="col-sm-9">
+                                                <input id="pro_ribbon" name="pro_ribbon" type="checkbox"/>
+                                                <label class="control-label m-0px" for="pro_ribbon">Product Label?</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center form-group pro_ratting">
+                                            <div class="col-sm-9">
+                                                <input id="pro_ratting" name="pro_ratting" type="checkbox"/>
+                                                <label class="control-label m-0px" for="pro_ratting">Avg. Ratting?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p_slider_sample_view" style="padding-left: calc(25% + 10px);">
+                                    <img class="snip_sample_img border" src="/theme_laze/static/src/img/snippets/product_slider/slider_layout_1.png"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn_close" data-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary btn_apply" data-dismiss="modal" type="button">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

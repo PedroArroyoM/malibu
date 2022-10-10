@@ -1,0 +1,147 @@
+/* Footer Design
+-----------------------------------------*/
+#footer {
+	color: rgba(as-yiq-color($footer-color), 0.7);
+}
+
+.footer-top {
+	background-color: $as-theme;
+	padding: 5px 0;
+	.media {
+	    align-items: center;
+	    margin-top: 8px;
+	    margin-bottom: 8px;
+	    .icon {
+		    width: 40px;
+		    height: 40px;
+		    line-height: 40px;
+		    font-size: 30px;
+		    color: $as-white;
+		}
+		h5 {
+		    margin: 0;
+		    font-weight: 600;
+		    font-size: 18px;
+		    color: $as-white;
+		}
+	}
+}
+
+.footer-middle {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(as-yiq-color($footer-color), 0.1);
+	.fot-msg-in {
+		border-bottom: 1px solid rgba(as-yiq-color($footer-color), 0.1);
+		text-align: center;
+		font-size: 22px;
+		font-weight: 600;
+		color: as-yiq-color($footer-color);
+		margin: 0 0 20px;
+		padding: 10px 0 20px;
+		p {
+			margin: 0;
+		}
+	}
+	.footer-middle-sub {
+		margin-top: 20px;
+		.fot-note {
+			margin: 15px 0;
+		}
+		.ssl-image {
+			margin: 15px 0;
+			li {
+				margin-left: 15px;
+			}
+		}
+	}
+	.footer-widget-title{
+		h6 {
+		    font-size: 18px;
+		    font-weight: 600;
+		    margin: 0 0 10px;
+		    color: as-yiq-color($footer-color);
+		}
+	}
+
+	.footer-social-icons {
+		a {
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+			border-radius: 50%;
+			margin-right: 6px; 
+			text-align: center;
+			color: $as-white;
+			background: $as-theme;
+			@include transition(ease-in-out all 0.6s);
+			display: inline-flex;
+		    align-items: center;
+		    justify-content: center;
+		    text-decoration: none;
+			&:hover {
+				background: $as-dark;
+				color: $as-white;
+				@include transition(ease-in-out all 10ms);
+			}
+		}
+	}
+
+	.footer-widget {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	.footer-logo {
+		margin-bottom: 20px;
+	}
+	.footer-widget-list {
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li {
+		    padding-top: 4px;
+			padding-bottom: 4px;
+			a {
+				position: relative;
+				text-decoration: none;
+				@include transition(ease-in-out all 0.6s);
+				font-weight: 400;
+				color: rgba(as-yiq-color($footer-color), 0.7);
+				&:hover {
+					color: as-yiq-color($footer-color);
+				}
+				&:after {
+					content: "";
+					background: currentColor;
+					position: absolute;
+					bottom: 0;
+					left: auto;
+					right: 0;
+					width: 0px;
+					height: 1px;
+					@include transition(ease-in-out all 0.6s);
+				}
+				&:hover {
+					@include transition(ease-in-out all 10ms);
+					&:after {
+						left: auto;
+						right: 0;
+						width: 100%;
+						@include transition(ease-in-out all 10ms);
+					}
+				}
+			}
+		}
+	}
+}
+
+.footer-bottom {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	[class*="col-"] {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
